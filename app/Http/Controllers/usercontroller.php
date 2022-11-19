@@ -1,65 +1,96 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\User;
+use App\Models\UserModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Validator;
+
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->UserModel = new UserModel;
+
+    }
+
     public function register()
     {
        
-        $data['title'] = 'Register';
+        $data['title'] = '';
         return view('user/register', $data);
+        //return response()->json($data);
+        
     }
-
+   
     public function register_action(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'lastname'=>'required',
-            'phonenumber'=>'required',
-            'emailid'=>'required',
-            'address'=>'required',
-            'village'=>'required',
-            'district'=>'required',
-            'pincode'=>'required',
-            'state'=>'required',
-            'sfgname'=>'required',
-            'adharnumber'=>'required',
-            'username' => 'required|unique:tb_user',
-            'password' => 'required',
-            'password_confirm' => 'required|same:password',
-        ]);
+        $validation['name'] =   ['required'];  
+        $validation['lastname']=['required'];
+        $validation['phonenumber']=['required'];
+        $validation['username']=['required'];
+        $validation['address']=['required'];
+        $validation['village']=['required'];
+        $validation['district']=['required'];
+        $validation['pincode']= ['required'];
+        $validation['state']=['required'];
+        $validation['shgname']= ['required'];
+        $validation['photo']=['required'];
+        $validation['adharnumber']= ['required'];
+        $validation['username'] = ['required','unique:tb_user'];
+        $validation['password'] = ['required'];
+        $validation['password_confirm'] = ['required','same:password'];
+    
+        $validator = Validator::make($request->all(), $validation);
+      //print_r($validator->errors()->all());
+    //die;
+        if(!$validator->errors()->all()){
 
-        $user = new User([
+
+        $this->UserModel->insertData([
             'name' => $request->name,
             'lastname' => $request->lastname,
             'phonenumber'=>$request->phonenumber,
-            'emailid'=>$request->emailid,
+            'email'=>$request->email,
             'address'=>$request->address,
             'village'=>$request->village,
             'district'=>$request->district,
             'pincode'=>$request->pincode,
             'state'=>$request->state,
-            'sfgname'=>$request->sfgname,
+            'shgname'=>$request->shgname,
+            'photo'=>$request->photo,
             'adharnumber'=>$request->adharnumber,
             'username' => $request->username,
             'password' => Hash::make($request->password),
+            'password_confirm'=>Hash::make($request->password_confirm),
         ]);
-        $user->save();
+
 
         return redirect('login')->with('success', 'Registration success. Please login!');
+        }
+
+        if($validator->errors()->all()) 
+        { 
+            return redirect("login")->withErrors($validator)->withInput();
+        }
+
+   
+    }
+    
+    public function Dashboard1()
+    {
+       
+        $data['title'] = '';
+        return view('user/Dashboard1', $data);
     }
 
 
     public function login()
     {
         
-        $data['title'] = 'Login';
+        $data['title'] = '';
         return view('user/login', $data);
     }
 
@@ -69,9 +100,9 @@ class UserController extends Controller
             'username' => 'required',
             'password' => 'required',
         ]);
-        if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
+        if (Auth::attempt(['username'=>$request->username, 'password'=> $request->password])) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('Dashboard1');
         }
 
         return back()->withErrors([

@@ -27,7 +27,7 @@
             </div>
             <div class="mb-3">
                 <button class="btn btn-primary">Change</button>
-                <a href="{{ url('home') }}">back</a>
+                <a href="{{ url('login') }}">back</a>
                 
             </div>
         </form>

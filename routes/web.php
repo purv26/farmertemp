@@ -21,8 +21,24 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     Route::get('/','usercontroller@register');
     Route::get('register','usercontroller@register');
     Route::post('register','usercontroller@register_action');
-    //Route::get('traderregi','usercontroller@traderregi');
-    //Route::post('traderregi','usercontroller@traderregi');
+    Route::get('traderregi','tradercontroller@traderregi');
+    Route::put('traderregi','tradercontroller@traderregi_action');
+    Route::post('traderregi','tradercontroller@traderregi_action');
+    Route::get('farmerregi','farmercontroller@farmerregi');
+    Route::post('farmerregi','farmercontroller@farmerregi_action');
+    Route::get('procurementsender','procurementcontroller@procurementsender');
+    Route::post('procurementsender','procurementcontroller@procurementsender_action');
+    Route::get('Dashboard1','dashboardcontrolller@Dashboard1');
+    Route::get('categoryadd','categoryaddcontroller@categoryadd');
+    Route::post('categoryadd','categoryaddcontroller@categoryadd_action');
+    Route::get('farmeraddquantity','additemquantity@farmeraddquantity');
+   Route::post('farmeraddquantity','additemquantity@farmeraddquantity_action');
+
+    
+
+   
+  
+   
     Route::get('login','usercontroller@login');
     Route::post('login','usercontroller@login_action');
     Route::get('password','usercontroller@password');

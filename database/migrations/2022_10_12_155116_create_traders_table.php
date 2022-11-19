@@ -13,23 +13,19 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('register_user', function (Blueprint $table) {
+        Schema::create('traders', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('lastname');
-            $table->string('phonenumber');
-            $table->string('emailid');
             $table->string('address');
-            $table->string('village');
             $table->string('district');
-            $table->string('pincode');
             $table->string('state');
-            $table->string('sfgname');
-            $table->string('adharnumber');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->string('password_confirm');
-             $table->timestamps();
+            $table->string('emailid');
+            $table->string('phone_number');
+            $table->string('gst_number');
+            $table->string('adhar_number');
+
+            $table->timestamps();
         });
     }
 
@@ -40,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('register_user');
+        Schema::dropIfExists('traders');
     }
 };
