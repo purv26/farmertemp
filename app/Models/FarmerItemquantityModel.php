@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FarmeritemquantityModel extends Model
+class FarmeritemquantityModel extends Model 
 {
     protected $table = 'famer_item_quantity';
 
