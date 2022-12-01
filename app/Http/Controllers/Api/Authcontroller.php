@@ -49,7 +49,7 @@ class AuthController extends Controller
     {
         $data=[
             'username' => $request->username,
-            'password' =>$request->password
+            'password' =>$request->password,
         ];
         if(auth()->attempt($data)){
             //$token=auth()->user()->createToken('Token')->accessToken;

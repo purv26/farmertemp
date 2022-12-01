@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserModel extends Model
 {
     
-    protected $table ='tb_user'; 
+    protected $table ='farmer_register'; 
 
     protected $primary_key = 'id';
 

@@ -39,8 +39,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function() {
     Route::get('procurementsender','procurementcontroller@procurementsender');
     Route::post('procurementsender','procurementcontroller@procurementsender_action');
     Route::get('Dashboard1','dashboardcontrolller@Dashboard1');
+
     Route::get('categoryadd','categoryaddcontroller@categoryadd');
     Route::post('categoryadd','categoryaddcontroller@categoryadd_action');
+    
     Route::get('farmeraddquantity','additemquantity@farmeraddquantity');
    Route::post('farmeraddquantity','additemquantity@farmeraddquantity_action');
     Route::get('login','usercontroller@login');

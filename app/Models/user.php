@@ -11,7 +11,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected $table = '';
+    protected $table = 'farmer_register';
     protected $primaryKey = 'user_id';
 
     protected $fillable = [

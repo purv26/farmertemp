@@ -41,11 +41,7 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function() {
     
    
     
-    Route::post('categoryadd', 'categoryaddcontroller@categoryadd');
-    Route::get('categoryadd', 'categoryaddcontroller@categoryadd');
-    Route::get('categoryadd/{id}', 'categoryaddcontroller@showbyid');
-    Route::put('categoryaddupdate/{id}', 'categoryaddcontroller@updatebyid');
-    Route::delete('categoryadddelete/{id}', 'categoryaddcontroller@deletebyid');
+   
 
     Route::post('trader', 'trader@trader');
     Route::get('trader', 'trader@trader');
