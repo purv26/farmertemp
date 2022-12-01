@@ -9,7 +9,7 @@
         <p class="alert alert-danger">{{ $err }}</p>
         @endforeach
         @endif
-        <form action="{{url('farmeraddquantity')}}" method="POST">
+        <form action="{{url('questionanswer')}}" method="POST">
             @csrf
             <body class="bg-primary">
             <div id="layoutAuthentication">
@@ -19,36 +19,36 @@
           <div class="row justify-content-center">
           <div class="col-lg-20">
           <div class="card shadow-lg border-0 rounded-lg mt-10">
-            <div class="card-header"><h3 class="text-center font-weight-light my-4"> Account For FarmerquantityAdd</h3></div>
+            <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Question&Answer</h3></div>
             <div class="card-body">
             
+          
             <div class="row g-3">
-            <div class="col">
-            <label>CategoryName *</label>
-            <input type="categoryname"  class="form-control" name="categoryname" placeholder="Enter CategoryId">
-                
-            </div>
-
-            <div class="col">
-            <label>Quantity *</label>
-            <input type="quantity" class="form-control" name="quantity" placeholder="Enter quantity">
-            </div>
-           </div>
-
-           <div class="row g-3">
-            <label>categoryimage *</label>
-                <input class="form-control " id="formFileLg" type="file"  name="categoryimage" />    
-            </div>
-           
-
-    
+            <label>Enter Your Question*</label>
+            <input type=""  class="form-control" name="question" placeholder="Enter Question">        
+          </div>
+          <div class="row g-3">
+            <label>Enter Your Answer*</label>
+            <input type=""  class="form-control" name="answer" placeholder="Enter Answer">        
+          </div>
 
             <div class="mb-3">
                 <button class="btn btn-primary">Add</button>
-              
-              
-
+               
 </div>
+<div class="mb-3">
+<a  href="{{ url('editquestion') }}" >Edit</a>
+               
+               
+</div>
+<div class="mb-3">
+<a  href="{{ url('serachquestion') }}">Serach</a>
+</div>
+<div class="mb-3">
+<a  href="{{ url('removequestion') }}">Remove</a>
+</div>
+
+
 <div>
 
 </div>

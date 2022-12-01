@@ -1,12 +1,13 @@
 <?php
+
 namespace App\Models;
-use Illuminate\Database\Eloquent\Builder;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class UserModel extends Model
+class question extends Model
 {
-    
-    protected $table ='tb_user'; 
+    protected $table = 'questionanswer';
 
     protected $primary_key = 'id';
 
@@ -18,6 +19,4 @@ class UserModel extends Model
     {
         return $this->insertGetId($data);
     }
-
-
 }

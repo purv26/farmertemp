@@ -42,7 +42,9 @@ class AuthController extends Controller
      //$token = $user->createToken('token')->accessToken;
 
        return response()->json(['token'=>[],'user'=>$user]);
+
     }
+    
     public function login(Request $request)
     {
         $data=[

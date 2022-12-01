@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Vfpcktrader extends Model
 {
     
-    protected $table = 'vfpck_trader';
+    protected $table = ' vfpck_trader';
 
     protected $primary_key = 'id';
 

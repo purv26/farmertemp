@@ -114,11 +114,17 @@
               <div class="mb-3">
               
                 <a href="{{ url('traderregi') }}">TraderRegistration</a>
+                <a href="{{ url('farmerquestion') }}">farmerquestion</a>
+                <a href="{{ url('questionanswer') }}">question&answer</a>
+                
+                <a href="{{ url('Dashboard1') }}">question&answer</a>
+
+
             </div>
             <div class="mb-3">
               
                 <a href="{{ url('farmerregi') }}">FarmerGroupRegistration</a>
-                <a href="{{ url('farmeraddquantity') }}">farmeraddquantity</a>
+                <a href="{{ url('farmeraddquantity') }}">  farmeraddquantity</a>
             </div>
 </div>
 <div>

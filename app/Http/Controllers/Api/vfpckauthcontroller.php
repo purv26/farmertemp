@@ -63,7 +63,7 @@ class vfpckauthcontroller extends Controller
     public function traderlogin(Request $request)
     {
         $data=[
-            'password' =>$request->password
+            'phonenumber' =>$request->phonenumber,
         ];
         if(auth()->attempt($data)){
             //$token=auth()->user()->createToken('Token')->accessToken;
