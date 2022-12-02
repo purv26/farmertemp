@@ -14,19 +14,5 @@ class User extends Authenticatable
     protected $table = 'farmer_register';
     protected $primaryKey = 'user_id';
 
-    protected $fillable = [
-        'name',
-        'lastname',
-        'phonenumber',
-        'emailid',
-        'address',
-        'village',
-        'district',
-        'pincode',
-        'state',
-        'sfgname',
-        'adharnumber',
-        'username',
-        'password',
-    ];
+   
 }

@@ -17,7 +17,7 @@ class farmeraddquantitycontroller extends Controller
     public function itemquantity(Request $request)
     {
        
-     $user= FarmeritemquantityModel::create([
+     $user=FarmeritemquantityModel::create([
         'categoryname'=>$request->categoryname,
         'quantity' => $request->quantity,
         'categoryimage'=>$request->categoryimage,
@@ -49,6 +49,8 @@ class farmeraddquantitycontroller extends Controller
         $user->categoryname = $request->input('categoryname');
         $user->quantity = $request->input('quantity');
         $user->categoryimage = $request->input('categoryimage');
+        $user->categoryid = $request->input('categoryid');
+
         $user->update();
         return response()->json($user);
     }
