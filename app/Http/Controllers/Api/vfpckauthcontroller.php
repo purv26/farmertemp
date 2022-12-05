@@ -20,7 +20,7 @@ class vfpckauthcontroller extends Controller
     public function traderregister(Request $request)
     {
        
-     $user= Vfpcktrader::create([
+     $trader= Vfpcktrader::create([
         'phonenumber'=>$request->phonenumber,
         'password' => Hash::make($request->password),
         'password_confirm'=>Hash::make($request->password_confirm),
@@ -28,35 +28,35 @@ class vfpckauthcontroller extends Controller
  
      //$token = $user->createToken('token')->accessToken;
 
-       return response()->json(['token'=>[],'user'=>$user]);
+       return response()->json(['token'=>[],'trader'=>$trader]);
     }
     public function show()
     {
-        $user=Vfpcktrader::all();
-        return response()->json($user);
+        $vfpcktrader=Vfpcktrader::select("*")->get();
+        return response()->json($vfpcktrader);
     }
     public function showbyid($id)
     {
         
-        $user=Vfpcktrader::find($id);
-        return response()->json($user);
+        $vfpcktrader=Vfpcktrader::find($id);
+        return response()->json($vfpcktrader);
 
     }
     public function updatebyid(Request $request,$id)
     {
-        $user=Vfpcktrader::find($id);
-        $user->phonenumber = $request->input('phonenumber');
-        $user->password = $request->input('password');
-        $user->password_confirm= $request->input('password_confirm');
+        $vfpcktrader=Vfpcktrader::find($id);
+        $vfpcktrader->phonenumber = $request->input('phonenumber');
+        $vfpcktrader->password = $request->input('password');
+        $vfpcktrader->password_confirm= $request->input('password_confirm');
        
-        $user->update();
-        return response()->json($user);
+        $vfpcktrader->update();
+        return response()->json($vfpcktrader);
     }
     public function deletebyid(Request $request,$id)
     {
-        $user=Vfpcktrader::find($id);
-        $user->delete();
-        return response()->json($user);
+        $vfpcktrader=Vfpcktrader::find($id);
+        $vfpcktrader->delete();
+        return response()->json($vfpcktrader);
 
     }
    
@@ -67,7 +67,7 @@ class vfpckauthcontroller extends Controller
         ];
         if(auth()->attempt($data)){
             //$token=auth()->user()->createToken('Token')->accessToken;
-            return response()->json(['token'=>[],'user'=>$data]);
+            return response()->json(['token'=>[],'vfpcktrader'=>$data]);
         }
         else{
             return response()->json(['error'=>[],'unauthorised'],401);
