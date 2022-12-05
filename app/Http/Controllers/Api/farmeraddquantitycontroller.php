@@ -34,7 +34,7 @@ class farmeraddquantitycontroller extends Controller
     public function show()
     {
         $user=FarmeritemquantityModel::all();
-        return response()->json($user);
+        return response()->json(['user'=>$user],200);
     }
     public function showbyid($id)
     {
