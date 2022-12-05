@@ -24,14 +24,14 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function() {
     
     Route::post('register', 'authcontroller@register');
     Route::post('login', 'authcontroller@login');
+
     Route::post('traderregister', 'vfpckauthcontroller@traderregister');
     Route::post('traderlogin', 'vfpckauthcontroller@traderlogin');
-    Route::get('traderregister', 'vfpckauthcontroller@traderregister');
+    Route::get('vfpcktrader','vfpckauthcontroller@show');
     Route::get('traderregister/{id}', 'vfpckauthcontroller@showbyid');
     Route::put('traderregisterupdate/{id}', 'vfpckauthcontroller@updatebyid');
     Route::delete('traderregisterdelete/{id}', 'vfpckauthcontroller@deletebyid');
     
-
     
     Route::post('farmerquestion', 'farmerquestioncontroller@farmerquestion');
     Route::get('farmerquestion', 'farmerquestioncontroller@farmerquestion');
