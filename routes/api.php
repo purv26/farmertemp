@@ -67,8 +67,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Api'], function() {
     Route::post('itemquantity','farmeraddquantitycontroller@itemquantity');
     Route::get('itemquantity','farmeraddquantitycontroller@itemquantity');
     Route::get('itemquantity/{id}','farmeraddquantitycontroller@showbyid');
-    Route::put('itemquantityupdate/{id}','farmeraddquantitycontrolle@updatebyid');
-    Route::delete('itemquantitydelete/{id}','farmeraddquantitycontrolle@deletebyid');
+    Route::put('itemquantityupdate/{id}','farmeraddquantitycontroller@updatebyid');
+    Route::delete('itemquantitydelete/{id}','farmeraddquantitycontroller@deletebyid');
     
     
 });
